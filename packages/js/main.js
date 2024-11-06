@@ -141,7 +141,7 @@ function scrollActive() {
   sections.forEach((current) => {
     const sectionHeight = current.offsetHeight;
     const sectionTop = current.offsetTop - 50;
-    sectionId = current.getAttribute("id");
+    const sectionId = current.getAttribute("id");
 
     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
       document
@@ -214,7 +214,7 @@ themeButton.addEventListener("click", () => {
 // EmailJS initialization
 (function() {
     // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
-    emailjs.init('JKo47SCGuGQdxfgfF');
+    emailjs.init('40DpvbbyKuDUzy6EP');
 })();
 
 // Contact form functionality
