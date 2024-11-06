@@ -213,23 +213,21 @@ themeButton.addEventListener("click", () => {
 
 // EmailJS initialization
 (function() {
-    // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
-    emailjs.init('40DpvbbyKuDUzy6EP');
+    emailjs.init("40DpvbbyKuDUzy6EP");
 })();
 
 // Contact form functionality
 const contactForm = document.getElementById('contact-form');
-const sendButton = contactForm.querySelector('button[type="submit"]');
 
-contactForm.addEventListener('submit', function(event) {
+contactForm.addEventListener('submit', async function(event) {
     event.preventDefault();
 
-    const serviceID = 'service_lv63c4a'; // Replace with your service ID
-    const templateID = 'template_my_portfolio'; // Replace with your template ID
+    const serviceID = 'service_lv63c4a';
+    const templateID = 'template_my_portfolio';
     const btn = this.querySelector('button[type="submit"]');
     
     // Disable the button and show loading state
-    btn.disabled = true;
+    btn.disabled = true; 
     btn.innerHTML = 'Sending...';
 
     const templateParams = {
@@ -237,20 +235,20 @@ contactForm.addEventListener('submit', function(event) {
         from_email: document.getElementById('email').value,
         subject: document.getElementById('subject').value,
         message: document.getElementById('message').value,
-        to_name: 'Kiran', // Add this if your template uses it
+        to_name: 'Kiran',
     };
 
-    emailjs.send(serviceID, templateID, templateParams)
-        .then(function(response) {
-            alert('Thank you! Your message has been sent successfully.');
-            document.getElementById('contact-form').reset();
-        }, function(error) {
-            console.error('Error:', error);
-            alert('Oops! Something went wrong. Please try again later.');
-        })
-        .finally(() => {
-            // Re-enable the button and restore original text
-            btn.disabled = false;
-            btn.innerHTML = 'Send message <i class="uil uil-message button__icon"></i>';
-        });
+    try {
+        const response = await emailjs.sendForm(serviceID, templateID, this);
+        console.log('SUCCESS!', response);
+        alert('Thank you! Your message has been sent successfully.');
+        contactForm.reset();
+    } catch (error) {
+        console.error('FAILED...', error);
+        alert('Oops! Something went wrong. Please try again later.');
+    } finally {
+        // Re-enable the button and restore original text
+        btn.disabled = false;
+        btn.innerHTML = 'Send message <i class="uil uil-message button__icon"></i>';
+    }
 });

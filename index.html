@@ -901,26 +901,22 @@
                 <form id="contact-form" class="contact__form grid">
                     <div class="contact__inputs grid">
                         <div class="contact__content">
-                            <label for="" class="contact__label">Name</label>
-                            <input type="text" class="contact__input" id="name" required>
+                            <label class="contact__label">Name</label>
+                            <input type="text" name="from_name" class="contact__input" required>
                         </div>
-
                         <div class="contact__content">
-                            <label for="" class="contact__label">E-mail</label>
-                            <input type="email" class="contact__input" id="email" required>
+                            <label class="contact__label">Email</label>
+                            <input type="email" name="from_email" class="contact__input" required>
                         </div>
                     </div>
-
                     <div class="contact__content">
-                        <label for="" class="contact__label">Subject</label>
-                        <input type="text" class="contact__input" id="subject" required>
+                        <label class="contact__label">Subject</label>
+                        <input type="text" name="subject" class="contact__input" required>
                     </div>
-
                     <div class="contact__content">
-                        <label for="" class="contact__label">Description</label>
-                        <textarea name="" id="message" cols="0" rows="7" class="contact__input" required></textarea>
+                        <label class="contact__label">Message</label>
+                        <textarea name="message" cols="0" rows="7" class="contact__input" required></textarea>
                     </div>
-
                     <div>
                         <button type="submit" class="button button--flex">
                             Send message
