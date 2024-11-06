@@ -91,45 +91,63 @@ modalCloses.forEach((modalClose) => {
   });
 });
 
-/*==================== PORTFOLIO SWIPER  ====================*/
-let swiperPortfolio = new Swiper(".portfolio__container", {
-  cssMode: true,
-  loop: true,
-
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-
-  /* mousewheel: true,
-  keyboard: true, */
+// Close modal when clicking outside
+modalViews.forEach((modalView) => {
+  modalView.addEventListener("click", (e) => {
+    if (e.target === modalView) {
+      modalView.classList.remove("active-modal");
+    }
+  });
 });
 
-/*==================== TESTIMONIAL ====================*/
-let swiperTestimonial = new Swiper(".testimonial__container", {
+/*==================== PORTFOLIO SWIPER  ====================*/
+let portfolioSwiper = new Swiper(".portfolio__container", {
+  spaceBetween: 24,
   loop: true,
   grabCursor: true,
-  spaceBetween: 48,
-
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
     dynamicBullets: true,
   },
-
   breakpoints: {
-    568: {
-      slidesPerView: 2,
+    576: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 1,
+      spaceBetween: 48,
     },
   },
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+});
 
-  /* mousewheel: true,
-  keyboard: true, */
+/*==================== TESTIMONIAL ====================*/
+let testimonialSwiper = new Swiper(".testimonial__container", {
+  spaceBetween: 24,
+  loop: true,
+  grabCursor: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
+  breakpoints: {
+    576: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 1,
+      spaceBetween: 48,
+    },
+  },
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
 });
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
@@ -252,3 +270,367 @@ contactForm.addEventListener('submit', async function(event) {
         btn.innerHTML = 'Send message <i class="uil uil-message button__icon"></i>';
     }
 });
+
+// Modal functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const serviceCards = document.querySelectorAll('.services__content');
+    const modalCloses = document.querySelectorAll('.services__modal-close');
+    const modals = document.querySelectorAll('.services__modal');
+
+    // Open modal when clicking anywhere on the card
+    serviceCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const modalId = card.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+            modal.classList.add('active-modal');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+    });
+
+    // Close modal functions
+    const closeModal = (modal) => {
+        modal.classList.remove('active-modal');
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+    };
+
+    // Close with X button
+    modalCloses.forEach(close => {
+        close.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent event bubbling
+            const modal = close.closest('.services__modal');
+            closeModal(modal);
+        });
+    });
+
+    // Close when clicking outside
+    modals.forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal(modal);
+            }
+        });
+    });
+
+    // Close with ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            modals.forEach(modal => {
+                closeModal(modal);
+            });
+        }
+    });
+});
+
+// Portfolio scroll functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.portfolio__container');
+    const leftArrow = document.querySelector('.portfolio__arrow-left');
+    const rightArrow = document.querySelector('.portfolio__arrow-right');
+    
+    // Scroll amount for each click (width of one card plus gap)
+    const scrollAmount = 370; // 350px card width + 20px gap
+
+    leftArrow.addEventListener('click', () => {
+        container.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+
+    rightArrow.addEventListener('click', () => {
+        container.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+
+    // Optional: Hide arrows at scroll limits
+    container.addEventListener('scroll', () => {
+        leftArrow.style.opacity = container.scrollLeft === 0 ? '0.5' : '1';
+        rightArrow.style.opacity = 
+            container.scrollLeft >= container.scrollWidth - container.clientWidth 
+            ? '0.5' 
+            : '1';
+    });
+});
+
+// Portfolio slider functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const projects = document.querySelectorAll('.portfolio__content');
+    const leftArrow = document.querySelector('.portfolio__arrow-left');
+    const rightArrow = document.querySelector('.portfolio__arrow-right');
+    let currentIndex = 0;
+
+    // Show initial project
+    projects[currentIndex].classList.add('active');
+
+    // Function to update active project
+    const showProject = (index) => {
+        projects.forEach(project => project.classList.remove('active'));
+        projects[index].classList.add('active');
+    };
+
+    // Previous project
+    leftArrow.addEventListener('click', () => {
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : projects.length - 1;
+        showProject(currentIndex);
+    });
+
+    // Next project
+    rightArrow.addEventListener('click', () => {
+        currentIndex = currentIndex < projects.length - 1 ? currentIndex + 1 : 0;
+        showProject(currentIndex);
+    });
+
+    // Optional: Auto-play
+    const autoPlay = setInterval(() => {
+        currentIndex = currentIndex < projects.length - 1 ? currentIndex + 1 : 0;
+        showProject(currentIndex);
+    }, 5000); // Change slide every 5 seconds
+
+    // Stop auto-play on hover
+    document.querySelector('.portfolio__container').addEventListener('mouseenter', () => {
+        clearInterval(autoPlay);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Portfolio Data
+    const portfolioData = [
+        {
+            title: 'Healthcare Patient Management',
+            description: 'Modern Canvas App featuring book tracking, member management, check-in/out system, and analytics dashboard.',
+            image: 'assets/img/healthcare-app.jpg',
+            technologies: ['Canvas App', 'Dataverse', 'Power Automate']
+        },
+        {
+            title: 'Manufacturing Inventory System',
+            description: 'Model-driven app with real-time stock tracking, order management, and supplier portal integration.',
+            image: 'assets/img/inventory-system.jpg',
+            technologies: ['Model-driven App', 'Power BI', 'PCF Components']
+        },
+        {
+            title: 'Employee Onboarding Portal',
+            description: 'Streamlined onboarding process with document management, task tracking, and automated workflows.',
+            image: 'assets/img/onboarding-portal.jpg',
+            technologies: ['Canvas App', 'SharePoint', 'Power Automate']
+        },
+        {
+            title: 'Customer Service Portal',
+            description: 'Integrated case management, knowledge base, and customer communication tools with custom dashboards.',
+            image: 'assets/img/customer-service.jpg',
+            technologies: ['Model-driven App', 'Portals', 'Power BI']
+        }
+    ];
+
+    // Testimonial Data
+    const testimonialData = [
+        {
+            name: 'Sarah Johnson',
+            role: 'Project Manager, Healthcare Solutions',
+            image: 'assets/img/testimonial1.jpg',
+            text: 'The Canvas app developed for our patient management system streamlined our entire workflow.'
+        },
+        {
+            name: 'Michael Chen',
+            role: 'Operations Director, Manufacturing Inc.',
+            image: 'assets/img/testimonial2.jpg',
+            text: 'The inventory tracking Power App integrated perfectly with our existing systems.'
+        },
+        {
+            name: 'Emily Martinez',
+            role: 'HR Manager, Education Services',
+            image: 'assets/img/testimonial3.jpg',
+            text: 'Our employee onboarding process was transformed with the custom Power Apps solution.'
+        },
+        {
+            name: 'David Thompson',
+            role: 'IT Director, Retail Solutions',
+            image: 'assets/img/testimonial4.jpg',
+            text: 'The model-driven app for our customer service team exceeded expectations.'
+        }
+    ];
+
+    // Initialize Portfolio Slider
+    function initializePortfolio() {
+        const portfolioWrapper = document.querySelector('.portfolio__wrapper');
+        const portfolioLeftArrow = document.querySelector('.portfolio__container .nav__arrow-left');
+        const portfolioRightArrow = document.querySelector('.portfolio__container .nav__arrow-right');
+        const portfolioDots = document.querySelector('.portfolio__container .dots__container');
+        let currentPortfolioIndex = 0;
+
+        // Function to update portfolio content
+        function updatePortfolio() {
+            const item = portfolioData[currentPortfolioIndex];
+            portfolioWrapper.innerHTML = `
+                <div class="portfolio__content">
+                    <img src="${item.image}" alt="${item.title}" class="portfolio__img">
+                    <div class="portfolio__data">
+                        <h3 class="portfolio__title">${item.title}</h3>
+                        <p class="portfolio__description">${item.description}</p>
+                        <div class="portfolio__stack">
+                            ${item.technologies.map(tech => `<span class="portfolio__stack-item">${tech}</span>`).join('')}
+                        </div>
+                        <a href="#" class="demo__button">
+                            Demo <i class="uil uil-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            // Update dots
+            portfolioDots.innerHTML = portfolioData.map((_, index) => 
+                `<span class="dot ${index === currentPortfolioIndex ? 'active' : ''}"></span>`
+            ).join('');
+        }
+
+        // Event listeners for portfolio navigation
+        portfolioLeftArrow.addEventListener('click', () => {
+            currentPortfolioIndex = (currentPortfolioIndex - 1 + portfolioData.length) % portfolioData.length;
+            updatePortfolio();
+        });
+
+        portfolioRightArrow.addEventListener('click', () => {
+            currentPortfolioIndex = (currentPortfolioIndex + 1) % portfolioData.length;
+            updatePortfolio();
+        });
+
+        // Initialize portfolio
+        updatePortfolio();
+    }
+
+    // Initialize Testimonials Slider
+    function initializeTestimonials() {
+        const testimonialWrapper = document.querySelector('.testimonial__wrapper');
+        const testimonialLeftArrow = document.querySelector('.testimonial__container .nav__arrow-left');
+        const testimonialRightArrow = document.querySelector('.testimonial__container .nav__arrow-right');
+        const testimonialDots = document.querySelector('.testimonial__container .dots__container');
+        let currentTestimonialIndex = 0;
+
+        // Function to update testimonial content
+        function updateTestimonial() {
+            const item = testimonialData[currentTestimonialIndex];
+            testimonialWrapper.innerHTML = `
+                <div class="testimonial__content">
+                    <div class="testimonial__header">
+                        <img src="${item.image}" alt="" class="testimonial__img">
+                        <div>
+                            <h3 class="testimonial__name">${item.name}</h3>
+                            <span class="testimonial__client">${item.role}</span>
+                        </div>
+                    </div>
+                    <p class="testimonial__description">${item.text}</p>
+                </div>
+            `;
+
+            // Update dots
+            testimonialDots.innerHTML = testimonialData.map((_, index) => 
+                `<span class="dot ${index === currentTestimonialIndex ? 'active' : ''}"></span>`
+            ).join('');
+        }
+
+        // Event listeners for testimonials navigation
+        testimonialLeftArrow.addEventListener('click', () => {
+            currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonialData.length) % testimonialData.length;
+            updateTestimonial();
+        });
+
+        testimonialRightArrow.addEventListener('click', () => {
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialData.length;
+            updateTestimonial();
+        });
+
+        // Initialize testimonials
+        updateTestimonial();
+    }
+
+    // Initialize Portfolio Slider
+    initializePortfolio();
+
+    // Initialize Testimonials Slider
+    initializeTestimonials();
+});
+
+// Add touch swipe support
+function addSwipeSupport(element, onSwipeLeft, onSwipeRight) {
+    let touchstartX = 0;
+    let touchendX = 0;
+
+    element.addEventListener('touchstart', e => {
+        touchstartX = e.changedTouches[0].screenX;
+    });
+
+    element.addEventListener('touchend', e => {
+        touchendX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeThreshold = 50; // minimum distance for swipe
+        if (touchendX < touchstartX - swipeThreshold) onSwipeLeft();
+        if (touchendX > touchstartX + swipeThreshold) onSwipeRight();
+    }
+}
+
+// Add to your initialization code
+const portfolioWrapper = document.querySelector('.portfolio__wrapper');
+const testimonialWrapper = document.querySelector('.testimonial__wrapper');
+
+addSwipeSupport(portfolioWrapper, 
+    () => portfolioRightArrow.click(), 
+    () => portfolioLeftArrow.click()
+);
+
+addSwipeSupport(testimonialWrapper, 
+    () => testimonialRightArrow.click(), 
+    () => testimonialLeftArrow.click()
+);
+
+// Create a reusable slider function
+function createSlider(options) {
+    const {
+        containerId,
+        data,
+        template,
+        autoplay = false
+    } = options;
+
+    const container = document.querySelector(containerId);
+    const wrapper = container.querySelector('.wrapper');
+    const arrows = {
+        left: container.querySelector('.nav__arrow-left'),
+        right: container.querySelector('.nav__arrow-right')
+    };
+    const dots = container.querySelector('.dots__container');
+    
+    let currentIndex = 0;
+
+    function updateContent() {
+        wrapper.innerHTML = template(data[currentIndex]);
+        updateDots();
+    }
+
+    function updateDots() {
+        dots.innerHTML = data.map((_, index) => 
+            `<span class="dot ${index === currentIndex ? 'active' : ''}"></span>`
+        ).join('');
+    }
+
+    function navigate(direction) {
+        currentIndex = (currentIndex + direction + data.length) % data.length;
+        updateContent();
+    }
+
+    // Event Listeners
+    arrows.left.addEventListener('click', () => navigate(-1));
+    arrows.right.addEventListener('click', () => navigate(1));
+    
+    // Touch Support
+    addSwipeSupport(wrapper, 
+        () => navigate(1),
+        () => navigate(-1)
+    );
+
+    // Initialize
+    updateContent();
+}

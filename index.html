@@ -29,33 +29,38 @@
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list grid">
                     <li class="nav__item">
-                        <a href="#home" class="nav__link">
-                            <i class="uil uil-estate nav__icon"></i>Home
+                        <a href="#home" class="nav__link active-link">
+                            <i class="uil uil-estate nav__icon"></i> Home
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#about" class="nav__link">
-                            <i class="uil uil-user nav__icon"></i>About
+                            <i class="uil uil-user nav__icon"></i> About
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#skills" class="nav__link">
-                            <i class="uil uil-file-alt nav__icon"></i>Skills
+                            <i class="uil uil-file-alt nav__icon"></i> Skills
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#services" class="nav__link">
-                            <i class="uil uil-briefcase-alt nav__icon"></i>Services
+                            <i class="uil uil-briefcase-alt nav__icon"></i> Services
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#portfolio" class="nav__link">
-                            <i class="uil uil-scenery nav__icon"></i>Portfolio
+                            <i class="uil uil-scenery nav__icon"></i> Portfolio
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#testimonial" class="nav__link">
+                            <i class="uil uil-comment-alt-message nav__icon"></i> Testimonial
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#contact" class="nav__link">
-                            <i class="uil uil-message nav__icon"></i>Contact
+                            <i class="uil uil-message nav__icon"></i> Contact
                         </a>
                     </li>
                 </ul>
@@ -138,7 +143,7 @@
             <h2 class="section__title">About Me</h2>
             <span class="section__subtitle">My Introduction</span>
 
-            <div class="about__container container grid">
+            <div class="about__container container">
                 <div class="about__data">
                     <p class="about__description">
                         Dynamic and goal-oriented Computer Engineer with a Bachelor's Degree and around 3 years of dedicated experience in Microsoft Dynamics CRM 365 and Power Platform. Skilled in developing customized Dynamics 365 solutions, PowerApps, workflows, and dashboards. Detail-oriented with a passion for delivering high-quality results.
@@ -147,161 +152,141 @@
             </div>
         </section>
 
-        <!--==================== SKILLS ====================-->
-        <section class="skills section" id="skills">
-            <h2 class="section__title">Skills</h2>
-            <span class="section__subtitle">Microsoft Technology Stack</span>
+        <!-- Add this after your About/Professional Summary section -->
+        <section class="qualification section">
+            <h2 class="section__title">Qualification</h2>
+            <span class="section__subtitle">My personal journey</span>
 
-            <div class="skills__container container grid">
-                <div>
-                    <!--==================== POWER PLATFORM ====================-->
-                    <div class="skills__content">
-                        <h3 class="skills__title">Power Platform</h3>
-                        <div class="skills__box">
-                            <div class="skills__group">
-                                <div class="skills__data">
-                                    <i class="bx bxs-badge-check"></i>
-                                    <div>
-                                        <h3 class="skills__name">Power Apps</h3>
-                                        <span class="skills__level">Advanced</span>
-                                    </div>
-                                </div>
-                                <div class="skills__data">
-                                    <i class="bx bxs-badge-check"></i>
-                                    <div>
-                                        <h3 class="skills__name">Power Automate</h3>
-                                        <span class="skills__level">Advanced</span>
-                                    </div>
-                                </div>
-                                <div class="skills__data">
-                                    <i class="bx bxs-badge-check"></i>
-                                    <div>
-                                        <h3 class="skills__name">Power BI</h3>
-                                        <span class="skills__level">Advanced</span>
-                                    </div>
-                                </div>
+            <div class="qualification__container">
+                <div class="qualification__tabs">
+                    <div class="qualification__title education">
+                        <i class="uil uil-graduation-cap"></i> Education
+                    </div>
+                    <div class="qualification__title work">
+                        <i class="uil uil-briefcase-alt"></i> Work
+                    </div>
+                </div>
+
+                <div class="qualification__timeline">
+                    <!-- Education -->
+                    <div class="qualification__item qualification__education">
+                        <div class="qualification__content">
+                            <h3 class="qualification__title">Higher Education</h3>
+                            <span class="qualification__subtitle">Tilottama College, Butwal,Nepal</span>
+                            <div class="qualification__date">
+                                <i class="uil uil-calendar-alt"></i>
+                                2014 - 2016
                             </div>
                         </div>
+                        <div class="qualification__dot"></div>
                     </div>
 
-                    <!--==================== DYNAMICS 365 ====================-->
-                    <div class="skills__content">
-                        <h3 class="skills__title">Dynamics 365</h3>
-                        <div class="skills__box">
-                            <div class="skills__group">
-                                <div class="skills__data">
-                                    <i class="bx bxs-badge-check"></i>
-                                    <div>
-                                        <h3 class="skills__name">Dataverse</h3>
-                                        <span class="skills__level">Advanced</span>
-                                    </div>
-                                </div>
-                                <div class="skills__data">
-                                    <i class="bx bxs-badge-check"></i>
-                                    <div>
-                                        <h3 class="skills__name">Custom Development</h3>
-                                        <span class="skills__level">Advanced</span>
-                                    </div>
-                                </div>
-                                <div class="skills__data">
-                                    <i class="bx bxs-badge-check"></i>
-                                    <div>
-                                        <h3 class="skills__name">Solution Architecture</h3>
-                                        <span class="skills__level">Intermediate</span>
-                                    </div>
-                                </div>
+                    <div class="qualification__item qualification__education">
+                        <div class="qualification__content">
+                            <h3 class="qualification__title">Bachelor in Computer Engineering</h3>
+                            <span class="qualification__subtitle">Nepal Engineering College, Pokhara University</span>
+                            <div class="qualification__date">
+                                <i class="uil uil-calendar-alt"></i>
+                                2016 - 2020
                             </div>
                         </div>
+                        <div class="qualification__dot"></div>
                     </div>
 
-                    <!--==================== DEVELOPMENT ====================-->
-                    <div class="skills__content">
-                        <h3 class="skills__title">Development</h3>
-                        <div class="skills__box">
-                            <div class="skills__group">
-                                <div class="skills__data">
-                                    <i class="bx bxs-badge-check"></i>
-                                    <div>
-                                        <h3 class="skills__name">Power Fx</h3>
-                                        <span class="skills__level">Advanced</span>
-                                    </div>
-                                </div>
-                                <div class="skills__data">
-                                    <i class="bx bxs-badge-check"></i>
-                                    <div>
-                                        <h3 class="skills__name">JavaScript</h3>
-                                        <span class="skills__level">Intermediate</span>
-                                    </div>
-                                </div>
-                                <div class="skills__data">
-                                    <i class="bx bxs-badge-check"></i>
-                                    <div>
-                                        <h3 class="skills__name">C#</h3>
-                                        <span class="skills__level">Intermediate</span>
-                                    </div>
-                                </div>
+                    <!-- Work Experience -->
+                    <div class="qualification__item qualification__experience">
+                        <div class="qualification__content">
+                            <h3 class="qualification__title">Intern</h3>
+                            <span class="qualification__subtitle">Leapfrog Technology</span>
+                            <div class="qualification__date">
+                                <i class="uil uil-calendar-alt"></i>
+                                2021
                             </div>
                         </div>
+                        <div class="qualification__dot"></div>
+                    </div>
+
+                    <div class="qualification__item qualification__experience">
+                        <div class="qualification__content">
+                            <h3 class="qualification__title">Associate Software Engineer</h3>
+                            <span class="qualification__subtitle">Leapfrog Technology</span>
+                            <div class="qualification__date">
+                                <i class="uil uil-calendar-alt"></i>
+                                2022
+                            </div>
+                        </div>
+                        <div class="qualification__dot"></div>
+                    </div>
+
+                    <div class="qualification__item qualification__experience">
+                        <div class="qualification__content">
+                            <h3 class="qualification__title">Software Engineer</h3>
+                            <span class="qualification__subtitle">Leapfrog Technology</span>
+                            <div class="qualification__date">
+                                <i class="uil uil-calendar-alt"></i>
+                                2023-2024
+                            </div>
+                        </div>
+                        <div class="qualification__dot"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!--==================== EXPERIENCE ====================-->
-        <section class="experience section" id="experience">
-            <h2 class="section__title">Experience</h2>
-            <span class="section__subtitle">My Work Journey</span>
+        <!--==================== SKILLS ====================-->
+        <section class="skills section" id="skills">
+            <h2 class="section__title">Skills</h2>
+            <span class="section__subtitle">My Technical Level</span>
 
-            <div class="experience__container container">
-                <div class="experience__content">
-                    <div class="experience__time">
-                        <span class="experience__rounder"></span>
-                        <span class="experience__line"></span>
-                    </div>
+            <div class="skills__container container">
+                <!-- Power Platform Skills -->
+                <div class="skills__content">
+                    <h3 class="skills__title">Power Platform</h3>
+                    <div class="skills__box">
+                        <div class="skills__group">
+                            <div class="skills__data">
+                                <div>
+                                    <h3 class="skills__name">Power Apps</h3>
+                                </div>
+                                <span class="skills__level">Advanced</span>
+                            </div>
 
-                    <div class="experience__data">
-                        <h3 class="experience__title">Software Engineer, Power Platform</h3>
-                        <span class="experience__company">Leapfrog Technology Pvt. Ltd. | December 2022 - March 2024</span>
-                        <ul class="experience__description">
-                            <li>Designed and developed solutions using Dynamics 365 and Power Platform</li>
-                            <li>Configured and managed Dataverse and automated business processes</li>
-                            <li>Created Power BI dashboards for data-driven decision-making</li>
-                            <li>Deployed solutions using Azure Pipeline across multiple environments</li>
-                            <li>Integrated Dynamics 365 with SharePoint and third-party applications</li>
-                        </ul>
-                    </div>
-                </div>
+                            <div class="skills__data">
+                                <div>
+                                    <h3 class="skills__name">Power Automate</h3>
+                                </div>
+                                <span class="skills__level">Advanced</span>
+                            </div>
 
-                <div class="experience__content">
-                    <div class="experience__time">
-                        <span class="experience__rounder"></span>
-                        <span class="experience__line"></span>
-                    </div>
-
-                    <div class="experience__data">
-                        <h3 class="experience__title">Associate Software Engineer, Power Platform</h3>
-                        <span class="experience__company">Leapfrog Technology Pvt. Ltd. | November 2021 - December 2022</span>
-                        <ul class="experience__description">
-                            <li>Developed canvas and model-driven applications in Dynamics 365</li>
-                            <li>Utilized PCF, Power Automate, and Power BI</li>
-                            <li>Collaborated with clients for requirements gathering</li>
-                        </ul>
+                            <div class="skills__data">
+                                <div>
+                                    <h3 class="skills__name">Power BI</h3>
+                                </div>
+                                <span class="skills__level">Advanced</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="experience__content">
-                    <div class="experience__time">
-                        <span class="experience__rounder"></span>
-                    </div>
+                <!-- Dynamics 365 Skills -->
+                <div class="skills__content">
+                    <h3 class="skills__title">Dynamics 365</h3>
+                    <div class="skills__box">
+                        <div class="skills__group">
+                            <div class="skills__data">
+                                <div>
+                                    <h3 class="skills__name">Dataverse</h3>
+                                </div>
+                                <span class="skills__level">Advanced</span>
+                            </div>
 
-                    <div class="experience__data">
-                        <h3 class="experience__title">Intern, Power Platform</h3>
-                        <span class="experience__company">Leapfrog Technology Pvt. Ltd. | September 2021 - November 2021</span>
-                        <ul class="experience__description">
-                            <li>Built Canvas and Model-driven applications</li>
-                            <li>Created data visualizations using Power BI</li>
-                            <li>Developed automated workflows using Power Automate</li>
-                        </ul>
+                            <div class="skills__data">
+                                <div>
+                                    <h3 class="skills__name">Solution Architecture</h3>
+                                </div>
+                                <span class="skills__level">Advanced</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -310,198 +295,117 @@
         <!--==================== SERVICES ====================-->
         <section class="services section" id="services">
             <h2 class="section__title">Services</h2>
-            <span class="section__subtitle">My Expertise</span> 
+            <span class="section__subtitle">My Expertise</span>
 
-            <div class="services__container container grid">
-                <!--==================== SERVICE 1 ====================-->
-                <div class="services__content">
-                    <div>
-                        <i class="uil uil-apps skills__icon"></i>
-                        <h3 class="services__title">Power Apps<br>Development</h3>
-                    </div>
-                    <span class="button button--flex button--small button--link services__button">
-                        View more
-                        <i class="uil uil-arrow-right button__icon"></i>
+            <div class="services__container container">
+                <!-- Power Apps Development -->
+                <div class="services__content" data-modal="modal-1">
+                    <i class="uil uil-apps services__icon"></i>
+                    <h3 class="services__title">Power Apps<br>Development</h3>
+                    <span class="services__button">
+                        View more 
+                        <i class="uil uil-arrow-right"></i>
                     </span>
+                </div>
 
-                    <div class="services__modal">
-                        <div class="services__modal-content">
-                            <h4 class="services__modal-title">Power Apps Development</h4>
-                            <i class="uil uil-times services__modal-close"></i>
+                <!-- Dynamics 365 Solutions -->
+                <div class="services__content" data-modal="modal-2">
+                    <i class="uil uil-circuit services__icon"></i>
+                    <h3 class="services__title">Dynamics 365<br>Solutions</h3>
+                    <span class="services__button">
+                        View more 
+                        <i class="uil uil-arrow-right"></i>
+                    </span>
+                </div>
 
-                            <ul class="services__modal-services grid">
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Canvas and Model-driven applications</p>
-                                </li>
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Custom Pages and PCF Components</p>
-                                </li>
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Responsive and user-friendly interfaces</p>
-                                </li>
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Integration with Dataverse and external systems</p>
-                                </li>
-                            </ul>
-                        </div>
+                <!-- Power Platform Solutions -->
+                <div class="services__content" data-modal="modal-3">
+                    <i class="uil uil-chart-line services__icon"></i>
+                    <h3 class="services__title">Power Platform<br>Solutions</h3>
+                    <span class="services__button">
+                        View more 
+                        <i class="uil uil-arrow-right"></i>
+                    </span>
+                </div>
+
+                <!-- Modal 1: Power Apps -->
+                <div class="services__modal" id="modal-1">
+                    <div class="services__modal-content">
+                        <h3 class="services__modal-title">Power Apps Development</h3>
+                        <i class="uil uil-times services__modal-close"></i>
+                        <ul class="services__modal-list">
+                            <li class="services__modal-item">
+                                <i class="uil uil-check-circle"></i>
+                                <p>Canvas and Model-driven applications</p>
+                            </li>
+                            <li class="services__modal-item">
+                                <i class="uil uil-check-circle"></i>
+                                <p>Custom Pages and PCF Components</p>
+                            </li>
+                            <li class="services__modal-item">
+                                <i class="uil uil-check-circle"></i>
+                                <p>Responsive and user-friendly interfaces</p>
+                            </li>
+                            <li class="services__modal-item">
+                                <i class="uil uil-check-circle"></i>
+                                <p>Integration with Dataverse and external systems</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
-                <!--==================== SERVICE 2 ====================-->
-                <div class="services__content">
-                    <div>
-                        <i class="uil uil-circuit skills__icon"></i>
-                        <h3 class="services__title">Dynamics 365<br>Solutions</h3>
-                    </div>
-                    <span class="button button--flex button--small button--link services__button">
-                        View more
-                        <i class="uil uil-arrow-right button__icon"></i>
-                    </span>
-
-                    <div class="services__modal">
-                        <div class="services__modal-content">
-                            <h4 class="services__modal-title">Dynamics 365 Solutions</h4>
-                            <i class="uil uil-times services__modal-close"></i>
-
-                            <ul class="services__modal-services grid">
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Custom entity and form development</p>
-                                </li>
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Business process flows and workflows</p>
-                                </li>
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Plugin development and customizations</p>
-                                </li>
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>SharePoint and Azure integrations</p>
-                                </li>
-                            </ul>
-                        </div>
+                <!-- Modal 2: Dynamics 365 -->
+                <div class="services__modal" id="modal-2">
+                    <div class="services__modal-content">
+                        <h3 class="services__modal-title">Dynamics 365 Solutions</h3>
+                        <i class="uil uil-times services__modal-close"></i>
+                        <ul class="services__modal-list">
+                            <li class="services__modal-item">
+                                <i class="uil uil-check-circle"></i>
+                                <p>Custom entity and form development</p>
+                            </li>
+                            <li class="services__modal-item">
+                                <i class="uil uil-check-circle"></i>
+                                <p>Business process flows and workflows</p>
+                            </li>
+                            <li class="services__modal-item">
+                                <i class="uil uil-check-circle"></i>
+                                <p>Plugin development and customization</p>
+                            </li>
+                            <li class="services__modal-item">
+                                <i class="uil uil-check-circle"></i>
+                                <p>Solution deployment and maintenance</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
-                <!--==================== SERVICE 3 ====================-->
-                <div class="services__content">
-                    <div>
-                        <i class="uil uil-chart-line skills__icon"></i>
-                        <h3 class="services__title">Power Platform<br>Solutions</h3>
-                    </div>
-                    <span class="button button--flex button--small button--link services__button">
-                        View more
-                        <i class="uil uil-arrow-right button__icon"></i>
-                    </span>
-
-                    <div class="services__modal">
-                        <div class="services__modal-content">
-                            <h4 class="services__modal-title">Power Platform Solutions</h4>
-                            <i class="uil uil-times services__modal-close"></i>
-
-                            <ul class="services__modal-services grid">
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Power Automate flows and automation</p>
-                                </li>
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Power BI dashboards and reports</p>
-                                </li>
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Custom connectors development</p>
-                                </li>
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>End-to-end solution architecture</p>
-                                </li>
-                            </ul>
-                        </div>
+                <!-- Modal 3: Power Platform -->
+                <div class="services__modal" id="modal-3">
+                    <div class="services__modal-content">
+                        <h3 class="services__modal-title">Power Platform Solutions</h3>
+                        <i class="uil uil-times services__modal-close"></i>
+                        <ul class="services__modal-list">
+                            <li class="services__modal-item">
+                                <i class="uil uil-check-circle"></i>
+                                <p>Power Automate flow development</p>
+                            </li>
+                            <li class="services__modal-item">
+                                <i class="uil uil-check-circle"></i>
+                                <p>Power BI reports and dashboards</p>
+                            </li>
+                            <li class="services__modal-item">
+                                <i class="uil uil-check-circle"></i>
+                                <p>AI Builder implementation</p>
+                            </li>
+                            <li class="services__modal-item">
+                                <i class="uil uil-check-circle"></i>
+                                <p>End-to-end solution architecture</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-
-
             </div>
-        </section>
-        <!--==================== PORTFOLIO ====================-->
-        <section class="portfolio section" id="portfolio">
-
-            <h2 class="section__title">Portfolio</h2>
-            <span class="section__subtitle">Most recent works</span>
-
-            <div class="portfolio__container container swiper-container">
-                <div class="swiper-wrapper">
-                    <!--==================== PORTFOLIO 1 ====================-->
-
-                    <div class="portfolio__content grid swiper-slide">
-                        <img src="./packages/images/portfolio1.jpg" alt="" class="portfolio__img">
-
-                        <div class="portfolio_">
-                            <h3 class="portfolio__title">Modern Dashboard</h3>
-                            <p class="portfolio__description">Data analitical dashboard adaptable to all devices,
-                                with ui components and animated interactions.</p>
-                            <a href="#" class="button button--flex button--small portfolio__button">
-                                Demo
-                                <i class="uil uil-arrow-right button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!--==================== PORTFOLIO 2 ====================-->
-
-                    <div class="portfolio__content grid swiper-slide">
-                        <img src="./packages/images/portfolio3.PNG" alt="" class="portfolio__img">
-
-                        <div class="portfolio_">
-                            <h3 class="portfolio__title">E-Commerce website</h3>
-                            <p class="portfolio__description">Above Amazon clone is adaptable to all devices, with
-                                ui components and animated interactions.</p>
-                            <a href="#" class="button button--flex button--small portfolio__button">
-                                Demo
-                                <i class="uil uil-arrow-right button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!--==================== PORTFOLIO 3 ====================-->
-
-                    <div class="portfolio__content grid swiper-slide">
-                        <img src="./packages/images/portfolio2.png" alt="" class="portfolio__img">
-
-                        <div class="portfolio_">
-                            <h3 class="portfolio__title">Brand Design</h3>
-                            <p class="portfolio__description">Tesla Clone is adaptable to all devices, with
-                                ui components and animated interactions.</p>
-                            <a href="#" class="button button--flex button--small portfolio__button">
-                                Demo
-                                <i class="uil uil-arrow-right button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- add arrows-->
-                <div class="swiper-button-next">
-                    <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
-                </div>
-
-                <div class="swiper-button-prev">
-                    <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
-                </div>
-
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
-
-
-            </div>
-
         </section>
 
         <!--==================== PROJECT IN MIND ====================-->
@@ -510,9 +414,7 @@
             <div class="project__bg">
                 <div class="project__container container grid">
                     <div class="project__data">
-                        <h2 class="project__title">You have a new project?</h2>
-                        <p class="project__description">Contact me now and get discounts on your Web development
-                            projects.</p>
+                        <h2 class="project__title">Want to work with me?</h2>
                         <a href="#contact" class="button button--flex button--white">Contact me
                             <i class="uil uil-message project__icon button__icon"></i>
                         </a>
@@ -524,87 +426,47 @@
 
         </section>
 
-        <!--==================== TESTIMONIAL ====================-->
-        <section class="testimonial section">
+        <!--==================== PORTFOLIO ====================-->
+        <section class="portfolio section" id="portfolio">
+            <h2 class="section__title">Portfolio</h2>
+            <span class="section__subtitle">Most recent works</span>
 
-            <h2 class="section__title">Testimonials</h2>
-            <span class="section__subtitle">My client saying</span>
-
-            <div class="testimonial__container container swiper-container">
-                <div class="swiper-wrapper">
-                    <!--==================== TESTIMONIAL 1 ====================-->
-                    <div class="testimonial__content swiper-slide">
-                        <div class="testimonial__data">
-                            <div class="testimonial__header">
-                                <img src="./packages/images/bucks.jpeg" alt="" class="testimonial__img">
-
-                                <div>
-                                    <h3 class="testimonial__name">Bucks Khanal</h3>
-                                    <span class="testimonial__client">Client</span>
-                                </div>
-                            </div>
-                            <div>
-                                <i class="uil uil-star testimonial__icon-star"></i>
-                                <i class="uil uil-star testimonial__icon-star"></i>
-                                <i class="uil uil-star testimonial__icon-star"></i>
-                                <i class="uil uil-star testimonial__icon-star"></i>
-                                <i class="uil uil-star testimonial__icon-star"></i>
-                            </div>
-                        </div>
-
-                        <p class="testimonial__description">I had great experience while working on my project with all the dedication and hard work.
-                        </p>
-                    </div>
-                    <!--==================== TESTIMONIAL 2 ====================-->
-                    <div class="testimonial__content swiper-slide">
-                        <div class="testimonial__data">
-                            <div class="testimonial__header">
-                                <img src="./packages/images/chunindra.jpg" alt="" class="testimonial__img">
-
-                                <div>
-                                    <h3 class="testimonial__name">Chunindra Tamang</h3>
-                                    <span class="testimonial__client">Client</span>
-                                </div>
-                            </div>
-                            <div>
-                                <i class="uil uil-star testimonial__icon-star"></i>
-                                <i class="uil uil-star testimonial__icon-star"></i>
-                                <i class="uil uil-star testimonial__icon-star"></i>
-                                <i class="uil uil-star testimonial__icon-star"></i>
-                                <i class="uil uil-star testimonial__icon-star"></i>
-                            </div>
-                        </div>
-
-                        <p class="testimonial__description">I got quite well responsive website with in a short peroid of time.
-                        </p>
-                    </div>
-                    <!--==================== TESTIMONIAL 3 ====================-->
-                    <div class="testimonial__content swiper-slide">
-                        <div class="testimonial__data">
-                            <div class="testimonial__header">
-                                <img src="./packages/images/shenan.PNG" alt="" class="testimonial__img">
-
-                                <div>
-                                    <h3 class="testimonial__name">Shenan Sachinthan</h3>
-                                    <span class="testimonial__client">Client</span>
-                                </div>
-                            </div>
-                            <div>
-                                <i class="uil uil-star testimonial__icon-star"></i>
-                                <i class="uil uil-star testimonial__icon-star"></i>
-                                <i class="uil uil-star testimonial__icon-star"></i>
-                                <i class="uil uil-star testimonial__icon-star"></i>
-                                <i class="uil uil-star testimonial__icon-star"></i>
-                            </div>
-                        </div>
-
-                        <p class="testimonial__description">I get a good impression, carried out my project with all the
-                            possible quality and attention and support.</p>
-                    </div>
+            <div class="portfolio__container">
+                <div class="nav__arrow nav__arrow-left">
+                    <i class="uil uil-angle-left-b"></i>
                 </div>
+                
+                <div class="portfolio__wrapper">
+                    <!-- Content will be dynamically inserted here -->
+                </div>
+                
+                <div class="nav__arrow nav__arrow-right">
+                    <i class="uil uil-angle-right-b"></i>
+                </div>
+                
+                <div class="dots__container"></div>
+            </div>
+        </section>
 
-                <!--Add pagination-->
-                <div class="swiper-pagination swiper-pagination-testimonial"></div>
+        <!--==================== TESTIMONIAL ====================-->
+        <section class="testimonial section" id="testimonial">
+            <h2 class="section__title">Testimonials</h2>
+            <span class="section__subtitle">What clients say</span>
+
+            <div class="testimonial__container">
+                <div class="nav__arrow nav__arrow-left">
+                    <i class="uil uil-angle-left-b"></i>
+                </div>
+                
+                <div class="testimonial__wrapper">
+                    <!-- Content will be dynamically inserted here -->
+                </div>
+                
+                <div class="nav__arrow nav__arrow-right">
+                    <i class="uil uil-angle-right-b"></i>
+                </div>
+                
+                <div class="dots__container"></div>
             </div>
         </section>
 
