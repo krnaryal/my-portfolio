@@ -214,41 +214,43 @@ themeButton.addEventListener("click", () => {
 // EmailJS initialization
 (function() {
     // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
-    emailjs.init('xfe0hPszVOdXZdwL-');
+    emailjs.init('JKo47SCGuGQdxfgfF');
 })();
 
 // Contact form functionality
 const contactForm = document.getElementById('contact-form');
 const sendButton = contactForm.querySelector('button[type="submit"]');
 
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Disable the send button during submission
-    sendButton.disabled = true;
-    sendButton.textContent = 'Sending...';
+contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    // Get form data
+    const serviceID = 'service_lv63c4a'; // Replace with your service ID
+    const templateID = 'template_my_portfolio'; // Replace with your template ID
+    const btn = this.querySelector('button[type="submit"]');
+    
+    // Disable the button and show loading state
+    btn.disabled = true;
+    btn.innerHTML = 'Sending...';
+
     const templateParams = {
         from_name: document.getElementById('name').value,
         from_email: document.getElementById('email').value,
         subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
+        message: document.getElementById('message').value,
+        to_name: 'Kiran', // Add this if your template uses it
     };
 
-    // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS service and template IDs
-    emailjs.send('service_2qv781y', 'template_my_portfolio', templateParams)
+    emailjs.send(serviceID, templateID, templateParams)
         .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            alert('Message sent successfully!');
-            contactForm.reset();
+            alert('Thank you! Your message has been sent successfully.');
+            document.getElementById('contact-form').reset();
         }, function(error) {
-            console.log('FAILED...', error);
-            alert('Failed to send message. Please try again.');
+            console.error('Error:', error);
+            alert('Oops! Something went wrong. Please try again later.');
         })
         .finally(() => {
-            // Re-enable the send button
-            sendButton.disabled = false;
-            sendButton.innerHTML = 'Send message <i class="uil uil-message button__icon"></i>';
+            // Re-enable the button and restore original text
+            btn.disabled = false;
+            btn.innerHTML = 'Send message <i class="uil uil-message button__icon"></i>';
         });
 });
