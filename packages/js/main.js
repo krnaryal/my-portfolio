@@ -210,3 +210,45 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
+
+// EmailJS initialization
+(function() {
+    // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+    emailjs.init('xfe0hPszVOdXZdwL-');
+})();
+
+// Contact form functionality
+const contactForm = document.getElementById('contact-form');
+const sendButton = contactForm.querySelector('button[type="submit"]');
+
+contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Disable the send button during submission
+    sendButton.disabled = true;
+    sendButton.textContent = 'Sending...';
+
+    // Get form data
+    const templateParams = {
+        from_name: document.getElementById('name').value,
+        from_email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+    };
+
+    // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS service and template IDs
+    emailjs.send('service_2qv781y', 'template_my_portfolio', templateParams)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            alert('Message sent successfully!');
+            contactForm.reset();
+        }, function(error) {
+            console.log('FAILED...', error);
+            alert('Failed to send message. Please try again.');
+        })
+        .finally(() => {
+            // Re-enable the send button
+            sendButton.disabled = false;
+            sendButton.innerHTML = 'Send message <i class="uil uil-message button__icon"></i>';
+        });
+});
