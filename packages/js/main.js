@@ -231,8 +231,7 @@ themeButton.addEventListener("click", () => {
 
 // EmailJS initialization
 (function() {
-    // Load API key from environment variable or config
-    emailjs.init(process.env.EMAILJS_PUBLIC_KEY);
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 })();
 
 // Contact form functionality
@@ -241,30 +240,21 @@ const contactForm = document.getElementById('contact-form');
 contactForm.addEventListener('submit', async function(event) {
     event.preventDefault();
 
-    // Load service and template IDs from environment variables or config
-    const serviceID = process.env.EMAILJS_SERVICE_ID;
-    const templateID = process.env.EMAILJS_TEMPLATE_ID;
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const btn = this.querySelector('button[type="submit"]');
     
     // Disable the button and show loading state
     btn.disabled = true; 
     btn.innerHTML = 'Sending...';
 
-    const templateParams = {
-        from_name: document.getElementById('name').value,
-        from_email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value,
-        to_name: 'Kiran',
-    };
-
     try {
-        const response = await emailjs.sendForm(serviceID, templateID, this);
-        console.log('SUCCESS!', response);
+        const result = await emailjs.sendForm(serviceID, templateID, this);
+        console.log('SUCCESS!', result.text);
         alert('Thank you! Your message has been sent successfully.');
         contactForm.reset();
     } catch (error) {
-        console.error('FAILED...', error);
+        console.error('FAILED...', error.text);
         alert('Oops! Something went wrong. Please try again later.');
     } finally {
         // Re-enable the button and restore original text
