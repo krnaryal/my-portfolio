@@ -231,7 +231,8 @@ themeButton.addEventListener("click", () => {
 
 // EmailJS initialization
 (function() {
-    emailjs.init("40DpvbbyKuDUzy6EP");
+    // Load API key from environment variable or config
+    emailjs.init(process.env.EMAILJS_PUBLIC_KEY);
 })();
 
 // Contact form functionality
@@ -240,8 +241,9 @@ const contactForm = document.getElementById('contact-form');
 contactForm.addEventListener('submit', async function(event) {
     event.preventDefault();
 
-    const serviceID = 'service_lv63c4a';
-    const templateID = 'template_my_portfolio';
+    // Load service and template IDs from environment variables or config
+    const serviceID = process.env.EMAILJS_SERVICE_ID;
+    const templateID = process.env.EMAILJS_TEMPLATE_ID;
     const btn = this.querySelector('button[type="submit"]');
     
     // Disable the button and show loading state
